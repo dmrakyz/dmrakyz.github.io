@@ -5,12 +5,27 @@
   "id": "/pwa-app",
   "start_url": "/index.html",
   "scope": "/",
+  "scope_extensions": [
+    {
+      "origin": "https://another-example.com"
+    }
+  ],
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#4caf50",
   "lang": "tr",
   "categories": ["productivity", "utilities"],
+  "dir": "ltr",
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.example.app",
+      "id": "com.example.app"
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "e3e3e3e3-1234-5678-9abc-def123456789",
   "icons": [
     {
       "src": "icon-192.png",
