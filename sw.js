@@ -6,7 +6,10 @@ const urlsToCache = [
   "/app.js",
   "/manifest.json",
   "/icon-192.png",
-  "/icon-512.png"
+  "/icon-512.png",
+  "/main.js",
+  "/screenshot1.png",
+  "/screenshot2.png"
 ];
 
 self.addEventListener("install", event => {
@@ -50,4 +53,15 @@ self.addEventListener("fetch", event => {
       }
     })
   );
+});
+
+self.addEventListener("push", event => {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || "Yeni Bildirim!";
+  const options = {
+    body: data.body || "Detay için tıklayın.",
+    icon: "/icon-192.png"
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
 });
